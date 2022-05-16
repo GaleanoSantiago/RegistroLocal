@@ -86,80 +86,99 @@
 <div class="container mt-3" style="">
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">  
-  <a class="btn btn-success" data-bs-toggle="collapse" href="#collapseForm" role="button" aria-expanded="false" aria-controls="collapseForm">
-    Agregar una Nueva Venta
-  </a>
-  
-</p>
-<div class="collapse mb-3" id="collapseForm">
-  <div class="card card-body">
-	<form action="lista_registros.php" method="POST">
-    <div class="container">
-	<div class="row">
-  	<div class="col-6" >
-    <div class="mb-3">
-        <div class="row">
-        <div class="col-lg-8 col-md-12 col-sm-12">
-	<label for="cliete_id" class="form-label">Cliente <span class="text-secondary">(Si no lo encuentra lo puede crear)</span> </label> 
-    <select name="cliente_id" id="cliente_id" class="form-select">
-    <?php    while($pre_fin=$pre_resultado->fetch_assoc()){   ?>    
-        <option value="<?php echo $pre_fin['cliente_id']; ?>"> 
+
+
+           <!-- Boton para la ventana modal -->
+	<button type="button" class="btn btn-success mb-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+	Agregar Nueva Venta
+	</button>
+
+            <!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Nueva Venta</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
         
-        <?php echo $pre_fin['cnombre_cliente'], " ", $pre_fin['capellido_cliente']; ?> </option>
-    <?php
-            }
-    ?>
-    </select>
+
+      <form action="lista_registros.php" method="POST" id="formularioRegistro">
+
+        <div class="mb-3">
+            <div class="row">
+            <div class="col-lg-8 col-md-12 col-sm-12">
+        <label for="cliete_id" class="form-label">Cliente <span class="text-secondary">(Si no lo encuentra lo puede crear)</span> </label> 
+        <select name="cliente_id" id="cliente_id" class="form-select">
+        <?php    while($pre_fin=$pre_resultado->fetch_assoc()){   ?>    
+            <option value="<?php echo $pre_fin['cliente_id']; ?>"> 
+            
+            <?php echo $pre_fin['cnombre_cliente'], " ", $pre_fin['capellido_cliente']; ?> </option>
+        <?php
+                }
+        ?>
+        </select>
         </div>
         <div class="col-lg-4 col-md-12 col-sm-12">
             <label for="" class="form-label"><span class="text-center"></span></label> 
-            <a href="lista_clientes.php#collapseForm" class="btn btn-info">Crear Nuevo Cliente</a>
+            <a href="lista_clientes.php" class="btn btn-info pt-0 pb-0 ps-0 pe-0">Crear Nuevo Cliente</a>
         </div>
         </div>
-	</div>
-	<div class="mb-3">
-		<input type="hidden" name="accion" value="confirmacion">            <!--Input hidden para confirmar el envio de este formulario-->
-    <label for="nombre" class="form-label" >Nombre del Producto</label>
-	<input type="text" name="nombre" id="nombre" class="form-control" required>
-	</div>
-	<div class="mb-3">
-	<label for="doc" class="form-label">Cantidad del Producto</label> 
-	<input type="number" name="cant" id="cant" class="form-control" required>
-	</div>
-    <div class="mb-3">
-	<label for="precio_prod" class="form-label">Precio Total por la Compra</label>	
-	<input type="number" name="precio_prod" id="precio_prod" class="form-control" min="1" required>
-	</div> 
-    <div class="mb-3">
-	<label for="precio_cuotas" class="form-label">Precio por Cuotas</label>	
-	<input type="number" name="precio_cuotas" id="precio_cuotas" class="form-control" placeholder="Puede dejar este campo vacio si no se vende por cuotas">
-	</div> 
+        </div>
+        <div class="mb-3">
+        <input type="hidden" name="accion" value="confirmacion">            <!--Input hidden para confirmar el envio de este formulario-->
+        <label for="nombre" class="form-label" >Nombre del Producto</label>
+        <input type="text" name="nombre" id="nombre" class="form-control" required>
+        </div>
+        <div class="mb-3">
+        <label for="doc" class="form-label">Cantidad del Producto</label> 
+        <input type="number" name="cant" id="cant" class="form-control" required>
+        </div>
+        <div class="mb-3">
+        <label for="precio_prod" class="form-label">Precio Total por la Compra</label>	
+        <input type="number" name="precio_prod" id="precio_prod" class="form-control" min="1" required>
+        </div> 
+        <div class="mb-3">
+        <label for="precio_cuotas" class="form-label">Precio por Cuotas</label>	
+        <input type="number" name="precio_cuotas" id="precio_cuotas" class="form-control" placeholder="Puede dejar este campo vacio si no se vende por cuotas">
+        </div> 
+        
+        <div class="mb-3">
+        <label for="cuotas" class="form-label" >Cuotas</label>
+        <input type="number" name="cuotas" id="cuotas"  class="form-control" placeholder="Puede dejar este campo vacio si no se vende por cuotas">
+        </div>
+        <div class="mb-3">
+        <label for="cuotas_pag" class="form-label">Cuotas Pagadas</label>	
+        <input type="number" name="cuotas_pag" id="cuotas_pag" class="form-control" placeholder="Puede dejar este campo vacio si no se vende por cuotas">
+        </div>
+        <div class="mb-3">
+        <label for="fecha" class="form-label">Fecha de la Venta</label>	
+        <input type="date" name="fecha" id="fecha" class="form-control" value="<?php echo $fecha_actual;?>" required >
+        </div>
+        <div class="mb-3">
+        <label for="hora" class="form-label">Hora <span class="text-secondary">(Puede dejar este campo vacio si lo desea)</span></label>	
+        <input type="time" name="hora" id="hora" class="form-control">
+        </div>
+        
+	</form>
+
+
+      </div>
+      <div class="modal-footer">
+        <div class="pe-2 border-end">
+        <button type="submit" class="btn btn-primary" form="formularioRegistro">Almacenar</button>
+        <button type="reset" class="btn btn-danger" form="formularioRegistro">Cancelar</button>
+        </div>
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cerrar</button>
+      </div>
     </div>
-    <div class="col-6">
-    <div class="mb-3">
-	<label for="cuotas" class="form-label" >Cuotas</label>
-	<input type="number" name="cuotas" id="cuotas"  class="form-control" placeholder="Puede dejar este campo vacio si no se vende por cuotas">
-	</div>
-	<div class="mb-3">
-	<label for="cuotas_pag" class="form-label">Cuotas Pagadas</label>	
-	<input type="number" name="cuotas_pag" id="cuotas_pag" class="form-control" placeholder="Puede dejar este campo vacio si no se vende por cuotas">
-	</div>
-    <div class="mb-3">
-	<label for="fecha" class="form-label">Fecha de la Venta</label>	
-	<input type="date" name="fecha" id="fecha" class="form-control" value="<?php echo $fecha_actual;?>" required >
-	</div>
-    <div class="mb-3">
-	<label for="hora" class="form-label">Hora <span class="text-secondary">(Puede dejar este campo vacio si lo desea)</span></label>	
-	<input type="time" name="hora" id="hora" class="form-control">
-	</div>
-	 
-		<br>
-  		<button type="submit" class="btn btn-primary">Almacenar</button>
-		<button type="reset" class="btn btn-danger">Cancelar</button>
-	</form></div>
-			
-	</div>
   </div>
+</div>
+
+
+  
+ <!--Había un </div> aca-->
 </div>
 </div>
 <!-------------- Fin del boton agregar ------------------->

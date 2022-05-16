@@ -89,48 +89,63 @@ $fecha_actual=date("Y-m-d");	//Variable que guarda la fecha del dia en la que se
 <div class="container" style="">
     <div class="row">
         <div class="col-lg-12">  
-  <a class="btn btn-success" data-bs-toggle="collapse" href="#collapseForm" role="button" aria-expanded="false" aria-controls="collapseForm">
-    Agregar un Nuevo Cliente 
-  </a>
-  
-</p>
-<div class="collapse" id="collapseForm">
-  <div class="card card-body">
-	<form action="lista_clientes.php" method="POST">
-    <div class="container">
-	<div class="row">
-  	<div class="col-6" >
-	<div class="mb-3">
-		<input type="hidden" name="accion" value="confirmacion">            <!--Input hidden para confirmar el envio de este formulario-->
-	<label for="apellido" class="form-label" >Apellido</label>
-	<input type="text" name="apellido" id="apellido" class="form-control"  >
-	</div>
-	<div class="mb-3">
-	<label for="doc" class="form-label">Documento</label> 
-	<input type="text" name="doc" id="doc" class="form-control">
-	</div>
-    <div class="mb-3">
-	<label for="direccion" class="form-label">Direccion</label>	
-	<input type="text" name="direccion" id="direccion" class="form-control"  >
-	</div> 
+
+    <!-- Boton para la ventana modal -->
+	<button type="button" class="btn btn-success " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+	Agregar Nuevo Cliente
+	</button>
+
+    <!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <form action="lista_clientes.php" method="POST" id="formularioCliente">
+        
+        <div class="mb-3">
+            <input type="hidden" name="accion" value="confirmacion">            <!--Input hidden para confirmar el envio de este formulario-->
+        <label for="apellido" class="form-label" >Apellido</label>
+        <input type="text" name="apellido" id="apellido" class="form-control"  >
+        </div>
+        <div class="mb-3">
+        <label for="nombre" class="form-label" >Nombre</label>
+        <input type="text" name="nombre" id="nombre"  class="form-control" required>
+        </div>
+        <div class="mb-3">
+        <label for="doc" class="form-label">Documento</label> 
+        <input type="text" name="doc" id="doc" class="form-control">
+        </div>
+        <div class="mb-3">
+        <label for="tel" class="form-label">N° de Telefono</label>	
+        <input type="tel" name="tel" id="tel" class="form-control">
+        </div>
+        <div class="mb-3">
+        <label for="direccion" class="form-label">Direccion</label>	
+        <input type="text" name="direccion" id="direccion" class="form-control"  >
+        </div> 
+        
+        
+
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <div class="pe-2 border-end">
+        <button type="submit" class="btn btn-primary" form="formularioCliente">Almacenar</button>
+        <button type="reset" class="btn btn-danger" form="formularioCliente">Cancelar</button>
+        </div>
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cerrar</button>
+      </div>
     </div>
-    <div class="col-6">
-    <div class="mb-3">
-	<label for="nombre" class="form-label" >Nombre</label>
-	<input type="text" name="nombre" id="nombre"  class="form-control" required>
-	</div>
-	<div class="mb-3">
-	<label for="tel" class="form-label">N° de Telefono</label>	
-	<input type="tel" name="tel" id="tel" class="form-control">
-	</div>
-	 
-		<br>
-  		<button type="submit" class="btn btn-primary">Almacenar</button>
-		<button type="reset" class="btn btn-danger">Cancelar</button>
-	</form></div>
-			
-	</div>
   </div>
+</div>
+
+  
 </div>
 </div>
 <!-------------- Fin del boton agregar ------------------->
@@ -174,7 +189,7 @@ $fecha_actual=date("Y-m-d");	//Variable que guarda la fecha del dia en la que se
 						<th class="border-end border-dark">Documento</th>
 						<th class="border-end border-dark">Telefono</th>
 						<th class="border-end border-dark">Direccion</th>
-						<th class="border-end border-dark">Cantidad de Ventas</th>
+						<th class="border-end border-dark">Cantidad de Compras</th>
 						<?php 
 					//	if($acceso==1){
 						echo "<th class='border-end border-dark'><span class='blue'> Editar</span></th>";
