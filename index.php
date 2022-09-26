@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
+    <link rel="icon" href="./imagenes/iconos/inicio2.png">
    <!-- Bootstrap -->
     <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css" type="text/css">
     <!-- Estilos propios -->
@@ -34,7 +35,7 @@
     <div id="menu-items">
     <div class="item">
             <a href="#">
-                <div class="icon"> <img src="imagenes/iconos/inicio.png" width="40px"> </div>
+                <div class="icon"> <img src="imagenes/iconos/inicio2.png" width="40px"> </div>
                 <div class="title">Inicio</div>
             </a>
         </div>
@@ -42,7 +43,7 @@
         </div>
         <div class="item">
             <a href="_Clientes/lista_clientes.php">
-                <div class="icon"> <img src="imagenes/iconos/customer-review.png" width="40px"> </div>
+                <div class="icon"> <img src="imagenes/iconos/client.png" width="40px"> </div>
                 <div class="title">Clientes</div>
             </a>
         </div>
@@ -66,10 +67,16 @@
 
         <div class="row centrado_vertical mb-3 justify-content-evenly"> 
         <div class="col-lg-3 col-md-3">
-        <div class="text-center bloques"><a href="_Clientes/lista_clientes.php"><img src="imagenes/iconos/customer-review.png" width="225px"> <br> <span class="text-light">Lista de Clientes</span></a></div>
+        <div class="text-center bloques">
+            <a href="_Clientes/lista_clientes.php">
+                <img src="imagenes/iconos/client.png" width="225px"> 
+                <br> 
+                <span class="text-light fs-5">Lista de Clientes</span>
+            </a>
+        </div>
         </div>
         <div class="col-lg-3 col-md-3">
-        <div class="text-center bloques"><a href="_Clientes/lista_registros.php"> <img src="imagenes/iconos/ventas.png" width="225px"> <br> <span class="text-light"> Lista de Registros</span></a></div>
+        <div class="text-center bloques"><a href="_Clientes/lista_registros.php"> <img src="imagenes/iconos/ventas.png" width="225px"> <br> <span class="text-light fs-5"> Lista de Registros</span></a></div>
         </div>
         </div>
         

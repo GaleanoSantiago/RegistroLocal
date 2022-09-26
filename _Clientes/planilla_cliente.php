@@ -10,6 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movimiento</title>
+    <link rel="icon" href="../imagenes/iconos/client.png">
     <!-- Bootstrap -->
 <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.min.css" type="text/css">
 
@@ -51,7 +52,7 @@
     <div id="menu-items">
         <div class="item">
             <a href="../index.php">
-                <div class="icon"> <img src="../imagenes/iconos/inicio.png" width="40px"> </div>
+                <div class="icon"> <img src="../imagenes/iconos/inicio2.png" width="40px"> </div>
                 <div class="title">Inicio</div>
             </a>
         </div>
@@ -59,7 +60,7 @@
         </div>
 		<div class="item">
             <a href="lista_clientes.php">
-                <div class="icon"> <img src="../imagenes/iconos/customer-review.png" width="40px"> </div>
+                <div class="icon"> <img src="../imagenes/iconos/client.png" width="40px"> </div>
                 <div class="title">Clientes</div>
             </a>
         </div>

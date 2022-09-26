@@ -6,10 +6,17 @@
 	
 }
 
+
+body{
+    font-family: sans-serif;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+
 /*----- Fondo de inicio-----*/
 .fondo_imagen{
 	width:100%;
-    background-image: url('../imagenes/fondos/fondo.png'); 
+    background-image: url(../imagenes/fondos/fondo.png); 
 	background-attachment: fixed;
     background-position:center;
     background-repeat: no-repeat;
@@ -20,9 +27,18 @@
 
 .fondo_gradiante{
 	
-	width: 110%;
+	width: 100%;
 	height:100vh;
-    background-image: radial-gradient(at 30% 20px, #0000FF 1%, #000080 60%) ;
+    /* background: rgb(0,0,255);
+	background: radial-gradient(at 30% 20px, rgba(22,22,210,1) 1%, rgba(2,2,115,1) 60%); */
+	background-image:url(../imagenes/fondos/4.png);
+	/* background: rgb(0,1,255);
+	background: linear-gradient(129deg, rgba(0,1,255,1) 0%, rgba(210,16,16,1) 77%); */
+    
+	/*Parallax*/
+	background-attachment: fixed;
+    background-position:bottom;
+    background-repeat: repeat;
 }
 
 .contenedor_login{
@@ -252,9 +268,12 @@ Perfil del menu
 /*----------------------------Inicio----------------------------------*/
 .bloques{
 	padding: 20px;	
-
+	transition: .3s;
 }
 
+.btn{
+	transition:.3s !important;
+}
 .btn:hover{
 	transition:.3s;
 	transform: translateY(-3px) scale(1.05);
@@ -265,7 +284,7 @@ Perfil del menu
 .bloques:hover{
     transition: .3s;
     transform: translateY(-3px) scale(1.05);
-    
+    filter: drop-shadow(5px 5px 10px #000);
 	
 }
 
